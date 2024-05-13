@@ -1,6 +1,6 @@
 package com;
 
-public class TestClass {
+public class git TestClass {
 
     public static void main(String[] args) {
         System.out.println("test");
