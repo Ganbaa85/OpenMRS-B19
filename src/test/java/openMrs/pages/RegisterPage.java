@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class RegisterPage {
+public class            RegisterPage {
 
     public RegisterPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -108,12 +108,14 @@ public class RegisterPage {
 
     }
 
-    public void clickConfrim(){
-      this.confirmButton.click();
-    }
+
 
     public void greenButton(){
-        this.greenButton.click();
+        greenButton.click();
+    }
+
+    public void clickConfrim(){
+        this.confirmButton.click();
     }
 
 

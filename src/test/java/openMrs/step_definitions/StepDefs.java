@@ -1,11 +1,10 @@
 package openMrs.step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import openMrs.pages.HomePage;
-import openMrs.pages.LoginPage;
-import openMrs.pages.RegisterPage;
+import openMrs.pages.*;
 import openMrs.utils.DriverHelper;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +15,8 @@ public class StepDefs {
     HomePage homePage = new HomePage(driver);
     LoginPage loginPage = new LoginPage(driver);
     RegisterPage registerPage = new RegisterPage(driver);
+    FindPatientPage findPatientPage = new FindPatientPage(driver);
+    PatientRecordPage patientRecordPage = new PatientRecordPage(driver);
 
 
     // Snippets for LogIn page
@@ -111,6 +112,7 @@ public class StepDefs {
         registerPage.chooseRelatives();
         registerPage.greenButton();
 
+
     }
 
     @Then("User confirm form")
@@ -118,4 +120,51 @@ public class StepDefs {
         Thread.sleep(2000);
         registerPage.clickConfrim();
     }
+
+
+
+    // snippets for find home page and find patient page
+
+
+
+    @Given("User is on home page clicks on find patient record")
+    public void user_is_on_home_page_clicks_on_find_patient_record() {
+        homePage.clickFindPatientRecord();
+
+    }
+    @Then("User clicks on search bar and search for patient")
+    public void user_clicks_on_search_bar_and_search_for_patient() {
+        findPatientPage.setSearchBar("tony");
+
+    }
+    @Then("User clicks on patients identifier")
+    public void user_clicks_on_patients_identifier() {
+        findPatientPage.clickOnIdentifier();
+
+    }
+    @Then("User is now on patient profile page and user clicks delete patient option")
+    public void user_is_now_on_patient_profile_page_and_user_clicks_delete_patient_option() {
+        patientRecordPage.setDeletePatient();
+
+    }
+    @When("User write the reason then click confirm button")
+    public void user_write_the_reason_then_click_confirm_button() {
+        patientRecordPage.setWriteReasonBar("delete");
+        patientRecordPage.clickConfirmButton();
+
+    }
+    @Then("User get confirming message validate the message")
+    public void user_get_confirming_message_validate_the_message() {
+
+        String expected = "Patient has been deleted successfully";
+        Assert.assertEquals(expected,patientRecordPage.getConfirmMessage());
+
+    }
+
+
+
+
+
+
+
 }
