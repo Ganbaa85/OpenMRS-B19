@@ -4,15 +4,44 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import openMrs.pages.HomePage;
+import openMrs.pages.LoginPage;
 import openMrs.pages.RegisterPage;
 import openMrs.utils.DriverHelper;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class StepDefs {
     WebDriver driver = DriverHelper.getDriver();
     HomePage homePage = new HomePage(driver);
+    LoginPage loginPage = new LoginPage(driver);
     RegisterPage registerPage = new RegisterPage(driver);
+
+
+    // Snippets for LogIn page
+    @Given("User is on Login page user click on Username and enter admin")
+    public void user_is_on_login_page_user_click_on_username_and_enter_admin() {
+        driver.get("http://codefish.ninja/openmrs/login.htm");
+        loginPage.enterUserName("admin");
+    }
+
+    @Then("User click on password form and enter Admin123")
+    public void user_click_on_password_form_and_enter_admin123() {
+        loginPage.enterPassword("Admin123");
+    }
+
+    @Then("User select any locator")
+    public void user_select_any_locator() {
+        loginPage.clickOnLocator();
+    }
+
+    @Then("User clicks on LogIn button")
+    public void user_clicks_on_log_in_button() {
+        loginPage.clickOnLogInButton();
+    }
+
+
+//Snippets for Register Page
 
     @Given("User is on main page user clicks on register patient Link")
     public void user_is_on_main_page_user_clicks_on_register_patient_link() {
@@ -29,12 +58,12 @@ public class StepDefs {
 
     @Then("User enters given middle and family name")
     public void user_enters_given_middle_and_family_name() {
-        registerPage.enterName("tony","scareFace","montana");
+        registerPage.enterName("tony", "scareFace", "montana");
     }
 
     @Then("User clicks on greenArrow")
     public void user_clicks_on_green_arrow() {
-     registerPage.greenButton();
+        registerPage.greenButton();
     }
 
     @Then("User choose gender")
@@ -44,47 +73,49 @@ public class StepDefs {
 
     @Then("User clicks on greenArrow1")
     public void user_clicks_on_green_arrow1() {
-      registerPage.greenButton();
+        registerPage.greenButton();
     }
 
     @Then("User enter birth date")
     public void user_enter_birth_date() {
-     registerPage.enterBirthDate("23","1992");
+        registerPage.enterBirthDate("23", "1992");
     }
 
     @Then("User clicks on greenArrow3")
     public void user_clicks_on_green_arrow3() {
-       registerPage.greenButton();
+        registerPage.greenButton();
     }
 
     @Then("User enter address and city and country and postal code")
     public void user_enter_address_and_city_and_country_and_postal_code() {
-     registerPage.enterAddress("Pushkina 45", "Kolotushkina 54", "Montana", "Oregon","USA","12353");
+        registerPage.enterAddress("Pushkina 45", "Kolotushkina 54", "Montana", "Oregon", "USA", "12353");
     }
 
     @Then("User clicks on greenArrow4")
     public void user_clicks_on_green_arrow4() {
-registerPage.greenButton();
+        registerPage.greenButton();
     }
 
     @Then("User enters phone number")
     public void user_enters_phone_number() {
-      registerPage.enterPhoneNumber("123532134");
+        registerPage.enterPhoneNumber("123532134");
     }
 
     @Then("User clicks on greenArrow5")
     public void user_clicks_on_green_arrow5() {
-     registerPage.greenButton();
+        registerPage.greenButton();
     }
 
     @Then("User choose relatives and clicks on green arrow")
-    public void user_choose_relatives_and_clicks_on_green_arrow() {
-       registerPage.chooseRelatives();
-       registerPage.greenButton();
+    public void user_choose_relatives_and_clicks_on_green_arrow() throws InterruptedException {
+        registerPage.chooseRelatives();
+        registerPage.greenButton();
+
     }
 
     @Then("User confirm form")
-    public void user_confirm_form() {
-     registerPage.confrim();
+    public void user_confirm_form() throws InterruptedException {
+        Thread.sleep(2000);
+        registerPage.clickConfrim();
     }
 }

@@ -57,7 +57,7 @@ public class RegisterPage {
     @FindBy(xpath = "//input[@name='phoneNumber']")
     WebElement phoneNumber;
 
-    @FindBy(xpath = "//input[@id='submit']")
+    @FindBy(xpath = "//*[@id=\"submit\"]]")
     WebElement confirmButton;
 
     public void  enterName( String givenName, String middleName, String familyName){
@@ -71,7 +71,7 @@ public class RegisterPage {
 
     public void chooseGender(){
         Select  select = new Select(genderDropdown);
-        select.selectByVisibleText("male");
+        select.selectByVisibleText("Male");
 
 
     }
@@ -108,8 +108,8 @@ public class RegisterPage {
 
     }
 
-    public void confrim(){
-        this.confirmButton.click();
+    public void clickConfrim(){
+      this.confirmButton.click();
     }
 
     public void greenButton(){
