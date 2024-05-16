@@ -18,5 +18,14 @@ public class HomePage {
     public void  clickOnRegisterPAge(){
         registerPage.click();
     }
+    @FindBy(id = "coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension" )
+    WebElement findPatientRecord;
+    public void clickFindPatientRecord(){
+        findPatientRecord.click();
+
+    }
+
+
+
 
 }

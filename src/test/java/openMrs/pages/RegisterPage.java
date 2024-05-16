@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-public class RegisterPage {
+public class            RegisterPage {
 
 
 
@@ -122,14 +122,18 @@ public class RegisterPage {
 
     }
 
+
     public void clickConfrim(){
 
   this.confirmButton.click();
     }
 
+
     public void greenButton(){
-        this.greenButton.click();
+        greenButton.click();
     }
+
+
 
 
 
