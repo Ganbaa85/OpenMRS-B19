@@ -1,12 +1,24 @@
 package openMrs.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 
 public class RegisterPage {
+
+
+
 
     public RegisterPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -57,8 +69,10 @@ public class RegisterPage {
     @FindBy(xpath = "//input[@name='phoneNumber']")
     WebElement phoneNumber;
 
-    @FindBy(xpath = "//*[@id=\"submit\"]]")
+    @FindBy(xpath = "//input[@id='submit']")
     WebElement confirmButton;
+
+
 
     public void  enterName( String givenName, String middleName, String familyName){
 
@@ -109,19 +123,13 @@ public class RegisterPage {
     }
 
     public void clickConfrim(){
-      this.confirmButton.click();
+
+  this.confirmButton.click();
     }
 
     public void greenButton(){
         this.greenButton.click();
     }
-
-
-
-
-
-
-
 
 
 

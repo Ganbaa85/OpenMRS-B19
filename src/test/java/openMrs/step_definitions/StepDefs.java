@@ -3,6 +3,7 @@ package openMrs.step_definitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.zh_tw.假設;
 import openMrs.pages.HomePage;
 import openMrs.pages.LoginPage;
 import openMrs.pages.RegisterPage;
@@ -88,7 +89,7 @@ public class StepDefs {
 
     @Then("User enter address and city and country and postal code")
     public void user_enter_address_and_city_and_country_and_postal_code() {
-        registerPage.enterAddress("Pushkina 45", "Kolotushkina 54", "Montana", "Oregon", "USA", "12353");
+        registerPage.enterAddress("Ventura Blvd", "Sunset avenue", "Montana", "Oregon", "USA", "12353");
     }
 
     @Then("User clicks on greenArrow4")
@@ -109,13 +110,10 @@ public class StepDefs {
     @Then("User choose relatives and clicks on green arrow")
     public void user_choose_relatives_and_clicks_on_green_arrow() throws InterruptedException {
         registerPage.chooseRelatives();
-        registerPage.greenButton();
-
     }
 
     @Then("User confirm form")
     public void user_confirm_form() throws InterruptedException {
-        Thread.sleep(2000);
         registerPage.clickConfrim();
     }
 }
