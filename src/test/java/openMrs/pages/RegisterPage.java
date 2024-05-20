@@ -57,7 +57,7 @@ public class            RegisterPage {
     @FindBy(xpath = "//input[@name='phoneNumber']")
     WebElement phoneNumber;
 
-    @FindBy(xpath = "//*[@id=\"submit\"]]")
+    @FindBy(xpath = "//input[@id='submit']")
     WebElement confirmButton;
 
     public void  enterName( String givenName, String middleName, String familyName){
