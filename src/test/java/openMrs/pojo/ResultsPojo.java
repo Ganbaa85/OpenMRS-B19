@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+import java.util.List;
+
+@Setter @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NamesPojo {
-    private String givenName;
-    private String familyName;
+public class ResultsPojo {
+    private List<PatientIdentifierPojo> results;
 
 }

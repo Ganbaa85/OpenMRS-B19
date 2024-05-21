@@ -6,7 +6,7 @@ public class PayloadUtils {
         String payload = "{\n" +
                 "    \"names\": [\n" +
                 "        {\n" +
-                "        \"givenName\": \"NewPatient\",\n" +
+                "        \"givenName\": \"Name\",\n" +
                 "        \"familyName\": \"Lastname\"\n" +
                 "        }\n" +
                 "    ],\n" +

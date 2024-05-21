@@ -3,7 +3,7 @@ package openMrs.post;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import openMrs.pojo.NamesPojo;
+import openMrs.pojo.CreatePatientPojo;
 import openMrs.utils.PayloadUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +26,8 @@ public class CreatePatient {
                 .when().post()
                 .then().statusCode(201)
                 .extract().response();
+        CreatePatientPojo desrielizedRespone = response.as(CreatePatientPojo.class);
+        System.out.println("Unique uuid is - "+desrielizedRespone.getUuid());
 
 
     }
